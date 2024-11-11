@@ -1,5 +1,6 @@
 {
-  "name": "https://github.com/aishwd94/astraegis_landing_page",
+  "homepage": "https://www.astraegis.com",
+  "name": "astraegis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
