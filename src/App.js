@@ -60,7 +60,7 @@ const App = () => {
               <Tabs value={0} centered style={{ boxShadow: 'none' }} TabIndicatorProps={{ style: { display: 'none' } }}>
                 <Tab label="About" component={Link} to="/about" style={{ color: 'black',  }} />
                 <Tab label="Resources" style={{ color: 'black',  }} onClick={handleResourcesClick} />
-                <Tab label="Blog" component={Link} to="/blog" style={{ color: 'black' }} />
+                {/*<Tab label="Blog" component={Link} to="/blog" style={{ color: 'black' }} />*/}
                 <Tab label="Contact" component={Link} to="/contact" style={{ color: 'black' }} />
               </Tabs>
               <Menu

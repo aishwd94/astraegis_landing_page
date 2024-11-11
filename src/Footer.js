@@ -20,28 +20,28 @@ const Footer = () => {
         <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="space-between" style={{ padding: '10em 0' }}>
           <Box flex="1" minWidth="200px" style={{ paddingBottom: '20px' }} display="flex" flexDirection="column">
             <Typography variant="h6" style={{ marginBottom: '10px', fontSize: '18px' }}>Product</Typography> {/* Increased text size */}
-            <Typography component={Link} to="/explore-product" variant="body2" className="footer-link">Explore product</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Explore product</Typography>
             <Typography component={Link} to="/pricing" variant="body2" className="footer-link">Pricing</Typography>
-            <Typography component={Link} to="/integrations" variant="body2" className="footer-link">Integrations</Typography>
-            <Typography component={Link} to="/features" variant="body2" className="footer-link">Features</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Integrations</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Features</Typography>
           </Box>
           <Box flex="1" minWidth="200px" style={{ paddingBottom: '20px' }} display="flex" flexDirection="column">
             <Typography variant="h6" style={{ marginBottom: '10px', fontSize: '18px' }}>Why Astraegis</Typography> {/* Renamed section */}
-            <Typography component={Link} to="/analyst-reports" variant="body2" className="footer-link">Analyst Reports</Typography> {/* Updated items */}
-            <Typography component={Link} to="/partners" variant="body2" className="footer-link">Partners</Typography>
-            <Typography component={Link} to="/competitors" variant="body2" className="footer-link">Competitors</Typography>
-            <Typography component={Link} to="/our-customers" variant="body2" className="footer-link">Our Customers</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Analyst Reports</Typography> {/* Updated items */}
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Partners</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Competitors</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Our Customers</Typography>
           </Box>
           <Box flex="1" minWidth="200px" style={{ paddingBottom: '20px' }} display="flex" flexDirection="column">
             <Typography variant="h6" style={{ marginBottom: '10px', fontSize: '18px' }}>Resources</Typography> {/* Increased text size */}
-            <Typography component={Link} to="/blog" variant="body2" className="footer-link">Blog</Typography> {/* Added link to blog page */}
-            <Typography component={Link} to="/case-studies" variant="body2" className="footer-link">Case Studies</Typography>
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Blog</Typography> {/* Added link to blog page */}
+            <Typography component={Link} to="/" variant="body2" className="footer-link">Case Studies</Typography>
             <Typography component={Link} to="/documentation" variant="body2" className="footer-link">Documentation</Typography> {/* Replaced Help with Documentation */}
           </Box>
           <Box flex="1" minWidth="200px" style={{ paddingBottom: '20px' }} display="flex" flexDirection="column">
             <Typography variant="h6" style={{ marginBottom: '10px', fontSize: '18px' }}>Company</Typography> {/* Increased text size */}
             <Typography component={Link} to="/about" variant="body2" className="footer-link">About</Typography> {/* Linked to AboutUs page */}
-            <Typography component={Link} to="/careers" variant="body2" className="footer-link">Careers</Typography>
+            <Typography component={Link} to="contact" variant="body2" className="footer-link">Careers</Typography>
             <Typography component={Link} to="/contact" variant="body2" className="footer-link">Contact Us</Typography> {/* Added Contact Us */}
           </Box>
           <Box flex="1" minWidth="200px" style={{ paddingBottom: '20px' }} display="flex" flexDirection="column">
