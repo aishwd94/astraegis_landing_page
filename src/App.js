@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { Button, Grid, Typography, Card, CardContent, Container, AppBar, Tabs, Tab, Toolbar, Box, Menu, MenuItem } from '@mui/material';
 import AboutUs from './AboutUs'; 
@@ -9,7 +10,10 @@ import Documentation from './Documentation';
 import Blog from './Blog';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
+import TryDemo from './TryDemo';
 import './App.css'; 
+
+ReactGA.initialize('G-ED2XJBWG65');
 
 const iconStyle = {
   color: 'black',
@@ -23,12 +27,16 @@ const iconHoverStyle = {
 };
 
 const cardStyle = {
-  boxShadow: 'none',
   borderRadius: '15px',
+  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
 };
 
 
 const App = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleResourcesClick = (event) => {
@@ -43,7 +51,7 @@ const App = () => {
     <Router>
       <div>
         <AppBar position="static" style={{ backgroundColor: '#fff', color: '#000', 
-          boxShadow: 'none', 'padding':'1em' }}>
+          boxShadow: 'none',  }}>
           <Toolbar>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <img src={require('./logo-colored.png')} alt="Logo" style={{ height: '40px', marginRight: '1em' }} />
@@ -73,7 +81,7 @@ const App = () => {
               </Menu>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <Button variant="contained" className="primary-button">
+              <Button variant="contained" className="primary-button" component={Link} to="/try-demo">
                 Try Demo
               </Button>
             </Box>
@@ -84,21 +92,23 @@ const App = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/" element={
             <>
-
+              {useEffect(() => {
+                ReactGA.pageview('/');
+              }, [])}
               {/* Hero Section */}
               <section style={{ padding: '0', height:'100vh', display: 'flex', alignItems: 'center' }}>
                 <Container>
                   <Grid container spacing={3} alignItems="center" style={{ paddingLeft: '2em', paddingRight: '2em' }}>
                     <Grid item xs={12} md={6}>
-                      <Typography variant="h2" gutterBottom style={{ fontWeight: 'bold' }}>
+                      <Typography variant="h2" gutterBottom style={{ fontWeight: 'bold', color:'#2e0a59' }}>
                         Restrict your AI Agents.
                       </Typography>
-                      <Typography variant="h5" paragraph style={{ marginBottom: '1em' }}>
-                        Protect your data and control access to shared resources with our advanced AI security platform tailored to your business needs.
+                      <Typography variant="h5" paragraph style={{ marginBottom: '1em' , color:'#2e0a59'}}>
+                        Protect your data and control access to shared resources with our highly scalable advanced middleware tailored to your business needs.
                       </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
-                      <img src={require('./main.png')} alt="Main" style={{ width: '100%', height: 'auto' }} />
+                      <img src={require('./main4.jpg')} alt="Hero" style={{ width: '100%', height: 'auto', borderRadius: '5vh' }} />
                     </Grid>
                   </Grid>
                 </Container>
@@ -138,23 +148,29 @@ const App = () => {
 
 
               <Container>
-              <Typography  mt={10} variant="h2" justifyContent='center' gutterBottom>
-                          A Firewall for your Agents
-                      </Typography>
-              <Grid item xs={12} md={6} mb={10}>
-                      <img src={require('./screenshot3.png')} alt="Why Choose Us" style={{ width: '100%', height: 'auto' }} />
+              <Typography  mt={20} variant="h2" align="center" justifyContent='center'>
+                          Stay Compliant and keep your PII data secure
+              </Typography>
+              <Typography  mb={20} variant="h6" align="center" justifyContent='center'>
+                          Create outbound and inbound rules to protect your Sensitive data
+              </Typography>
+              <Grid item xs={12} md={6} mb={10} >
+                      <img src={require('./screenshot3.png')} alt="Why Choose Us" style={{ borderRadius:'1.5vh', width: '100%', height: 'auto',  boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)' }} />
               </Grid>
               </Container>
               
               {/* Why Choose Us Section */}
-              <section style={{ padding: '5em 0',  height:'100vh', backgroundColor: '#000', display: 'flex', alignItems: 'center' }}>
+              <section style={{ padding: '5em 0',  height:'100vh', backgroundColor: '#000', display: 'flex', alignItems: 'center' , }}>
                 <Container>
                   <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                       <Typography variant="h4" gutterBottom style={{ color: '#fff' }}>
                         Why Choose Us?
                       </Typography>
-                      <Typography variant="body1" paragraph style={{ color: '#fff' }}>
+                      <Typography variant="h6" gutterBottom style={{ color: '#fff' }}>
+                        Because its fast!
+                      </Typography>
+                      <Typography variant="body1" paragraph style={{ color: '#fff'}}>
                         Our platform offers unparalleled security features that ensure your data is always protected. With our advanced AI monitoring and access control, you can rest assured that your sensitive information is safe.
                       </Typography>
                       <Typography variant="body1" paragraph style={{ color: '#fff' }}>
@@ -164,7 +180,7 @@ const App = () => {
                     <Grid item xs={12} md={6}>
                       <Grid container spacing={4}>
                         <Grid item xs={12} md={6}>
-                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#311B92' }}>
+                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#311B92',  boxShadow: '0 8px 16px rgba(255, 255, 255, 0.2)' }}>
                             <CardContent>
                               <Typography variant="h5" style={{ color: '#fff' }}>Competitive Pricing</Typography>
                               <Typography variant="body2" style={{ color: '#fff' }}>We offer competitive pricing plans that fit businesses of all sizes. Our flexible pricing ensures you get the best value for your investment.</Typography>
@@ -172,7 +188,7 @@ const App = () => {
                           </Card>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#4A148C' }}>
+                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#4A148C', boxShadow: '0 8px 16px rgba(255, 255, 255, 0.2)' }}>
                             <CardContent>
                               <Typography variant="h5" style={{ color: '#fff' }}>Custom Integrations</Typography>
                               <Typography variant="body2" style={{ color: '#fff' }}>Our platform supports custom integrations to meet your specific needs. We work closely with you to ensure seamless integration with your existing systems.</Typography>
@@ -180,7 +196,7 @@ const App = () => {
                           </Card>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#4A148C' }}>
+                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#4A148C' , boxShadow: '0 8px 16px rgba(255, 255, 255, 0.2)' }}>
                             <CardContent>
                               <Typography variant="h5" style={{ color: '#fff' }}>Highly Scalable</Typography>
                               <Typography variant="body2" style={{ color: '#fff' }}>Our architecture is highly scalable to grow with your business. Whether you're a small startup or a large enterprise, our platform can handle your needs.</Typography>
@@ -188,7 +204,7 @@ const App = () => {
                           </Card>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#311B92' }}>
+                          <Card style={{ borderRadius: '15px', height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', backgroundColor: '#311B92', boxShadow: '0 8px 16px rgba(255, 255, 255, 0.2)' }}>
                             <CardContent>
                               <Typography variant="h5" style={{ color: '#fff' }}>24/7 Support</Typography>
                               <Typography variant="body2" style={{ color: '#fff' }}>We provide 24/7 support to ensure your operations run smoothly. Our dedicated support team is always available to assist you with any issues.</Typography>
@@ -255,6 +271,14 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/termsofservice" element={<TermsOfService />} />
+          <Route path="/try-demo" element={
+            <>
+              {useEffect(() => {
+                ReactGA.pageview('/try-demo');
+              }, [])}
+              <TryDemo />
+            </>
+          } />
         </Routes>
       </div>
     </Router>

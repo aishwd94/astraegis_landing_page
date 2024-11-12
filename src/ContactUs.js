@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Grid, Box } from '@mui/material';
 import Footer from './Footer'; // Ensure this import is correct
 import './App.css'; // Ensure this import is correct
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mailtoLink = `mailto:contact@astraegis.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(formData.message)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <>
       <Container style={{'margin-top':'2em'}}>
@@ -12,7 +33,7 @@ const ContactUs = () => {
         </Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12}>
                   <TextField
@@ -22,6 +43,8 @@ const ContactUs = () => {
                     label="Name"
                     fullWidth
                     autoComplete="name"
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -32,6 +55,8 @@ const ContactUs = () => {
                     label="Email"
                     fullWidth
                     autoComplete="email"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -41,6 +66,8 @@ const ContactUs = () => {
                     name="subject"
                     label="Subject"
                     fullWidth
+                    value={formData.subject}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -52,6 +79,8 @@ const ContactUs = () => {
                     fullWidth
                     multiline
                     rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -71,7 +100,7 @@ const ContactUs = () => {
                 Prefer email?
               </Typography>
               <Typography variant="body3" paragraph>
-                We are here for you in every way possible. Please write directly to hi(at)astraegis(dot)com and we get back to you within one business day.
+                We are here for you in every way possible. Please write directly to contact(at)astraegis(dot)com and we get back to you within one business day.
               </Typography>
               <Typography variant="h4" gutterBottom>
                 Our Office

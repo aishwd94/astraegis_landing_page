@@ -5,6 +5,7 @@ import { Grid, List, ListItem, ListItemText, Box, TextField, Card } from '@mui/m
 import { Link as ScrollLink, Element } from 'react-scroll';
 import './Documentation.css';
 import documentationContent from './documentation.md';
+import { PaddingOutlined } from '@mui/icons-material';
 
 const Documentation = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,7 +61,7 @@ const Documentation = () => {
 
   return (
     <div>
-      <Box width="100%" style={{ padding: '1em' }}>
+      <Box style={{ padding: '1em 2em 1em 2em', marginLeft: '1em', marginRight: '1em'   }}>
         <TextField
           label="Search"
           variant="outlined"
@@ -69,8 +70,8 @@ const Documentation = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </Box>
-      <Grid container spacing={3} style={{ marginLeft: '1em', marginRight: '1em' }}>
-        <Grid item xs={3} style={{ height: 'auto', padding: '1em 2em 1em 2em' }}>
+      <Grid container  style={{ marginLeft: '1em', marginRight: '1em' }}>
+        <Grid item style={{ height: 'auto', padding: '1em 2em 1em 2em'  }}>
           <Card className="rounded-card" style={{ backgroundColor: '#F5F5F5', padding: '5px', height: '100%' }}>
             <List>
               {headers.map((header, index) => (
@@ -83,7 +84,7 @@ const Documentation = () => {
             </List>
           </Card>
         </Grid>
-        <Grid item md={9} style={{ padding: '0 5em 0 2em', height: leftContainerHeight, overflowY: 'auto' }}>
+        <Grid item md={7} style={{ padding: '0 5em 0 2em', height: leftContainerHeight, overflowY: 'auto' }}>
           {renderMarkdownWithElements(filteredContent)}
         </Grid>
       </Grid>
